@@ -74,7 +74,7 @@ npm install -D eslint-config-biome # or your preferred package manager ;)
   }
   ```
 
-- Since v1.4.0, this package includes [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier), so formatting rules are also disabled as Biome is equivalent to Prettier. [Attribution](ATTRIBUTION.md).
+- This package includes [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier), so formatting rules are also disabled as Biome is equivalent to Prettier. [Attribution](ATTRIBUTION.md).
 
 
 ## 📰 [Changelog](CHANGELOG.md)
