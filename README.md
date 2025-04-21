@@ -1,7 +1,5 @@
 <div align="center">
 
----
-
 ## 🚀 Check out my latest project — [NextStack](https://www.nextstack.gg)! 
 
 <a href="https://www.nextstack.gg" target="_blank">
