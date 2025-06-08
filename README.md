@@ -36,7 +36,18 @@ Disables ESLint rules that have an [**equivalent and recommended**](https://gith
 npm install -D eslint-config-biome # or your preferred package manager ;)
 ```
 
-- `.eslintrc.*`: Add the following as the last item in the `"overrides"` array. Create it if necessary.
+- `eslint.config.js`: Import `eslint-config-biome` and have it as the last item in the configuration array
+
+    ```js
+    import biome from "eslint-config-biome";
+
+    export default [
+      // other configs,
+      biome,
+    ];
+    ```
+
+- Or `.eslintrc.*` (eslint <= v8): Add the following as the last item in the `"overrides"` array. Create it if necessary.
 
     ```json5
     {
@@ -48,17 +59,6 @@ npm install -D eslint-config-biome # or your preferred package manager ;)
         }
       ],
     }
-    ```
-
-- Or `eslint.config.js`: Import `eslint-config-biome` and have it as the last item in the configuration array
-
-    ```js
-    import biome from "eslint-config-biome";
-
-    export default [
-      // other configs,
-      biome,
-    ];
     ```
 
 ## ℹ️ Info
