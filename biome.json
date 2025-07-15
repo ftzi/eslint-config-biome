@@ -1,5 +1,8 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.1/schema.json",
+  "files": {
+    "ignoreUnknown": true
+  },
   "formatter": {
     "indentWidth": 2,
     "indentStyle": "space"
@@ -15,9 +18,5 @@
     "formatter": {
       "semicolons": "asNeeded"
     }
-  },
-  "files": {
-    "ignore": ["./index.js", "./package.json", "./eslint-config-prettier.js"],
-    "ignoreUnknown": true
   }
 }

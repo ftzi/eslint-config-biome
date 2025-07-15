@@ -138,8 +138,11 @@ export const getRulesFromJsonMetadata = async (): Promise<Array<string>> => {
 
   filteredRules.forEach((rule) => {
     rule.sources?.forEach((ruleSource) => {
-      if (Object.keys(ruleSource).length > 1)
-        throw new Error("Rule source has more than one key!")
+      if (Object.keys(ruleSource).length > 1) {
+        throw new Error(
+          `Rule source has more than one key: ${JSON.stringify(ruleSource)}`,
+        )
+      }
       const key = Object.keys(ruleSource)[0]
 
       if (!key) throw new Error("Rule source has no key!")

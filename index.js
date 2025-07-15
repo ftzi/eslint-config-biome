@@ -10,7 +10,7 @@ module.exports = {
     "default-case-last": "off",
     "default-param-last": "off",
     "dot-notation": "off",
-    "eqeqeq": "off",
+    eqeqeq: "off",
     "for-direction": "off",
     "getter-return": "off",
     "no-async-promise-executor": "off",
@@ -82,7 +82,6 @@ module.exports = {
     "prefer-const": "off",
     "prefer-exponentiation-operator": "off",
     "prefer-numeric-literals": "off",
-    "prefer-object-has-own": "off",
     "prefer-regex-literals": "off",
     "prefer-rest-params": "off",
     "prefer-template": "off",
@@ -183,5 +182,5 @@ module.exports = {
     "unicorn/prefer-array-flat-map": "off",
     "unicorn/prefer-node-protocol": "off",
     "unicorn/prefer-number-properties": "off",
-  }
+  },
 }

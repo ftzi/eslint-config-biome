@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.9.5
+
+- Update `eslint-config-prettier`.
+### 🚀 Check out my latest project — [NextStack](https://www.nextstack.gg)!
+
+<a href="https://www.nextstack.gg" target="_blank">
+  <img src="https://www.nextstack.gg/opengraph-image" width="500" alt="NextStack OpenGraph Image">
+</a>
+
+
 ## 1.9.3
 
 - Added a few minor ESLint rules to be disabled.
