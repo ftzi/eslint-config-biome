@@ -1,14 +1,9 @@
 # Changelog
 
-## 1.9.5
+## 2.1.1
 
-- Update `eslint-config-prettier`.
-### 🚀 Check out my latest project — [NextStack](https://www.nextstack.gg)!
-
-<a href="https://www.nextstack.gg" target="_blank">
-  <img src="https://www.nextstack.gg/opengraph-image" width="500" alt="NextStack OpenGraph Image">
-</a>
-
+- Updated Biome to 2.1.1.
+- Updated `eslint-config-prettier`.
 
 ## 1.9.3
 
