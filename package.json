@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-biome",
-  "version": "1.9.4",
+  "version": "2.1.1",
   "description": "Disables ESLint rules that have a recommended and equivalent Biome rule",
   "main": "index.js",
   "scripts": {
@@ -34,11 +34,11 @@
   ],
   "repository": "SrBrahma/eslint-config-biome",
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.1.1",
     "@sindresorhus/tsconfig": "^7.0.0",
-    "@types/bun": "^1.1.14",
-    "eslint-config-gev": "4.6.2",
+    "@types/bun": "^1.2.18",
+    "eslint-config-gev": "4.9.1",
     "husky": "^9.1.7",
-    "typescript": "^5.7.2"
+    "typescript": "^5.8.3"
   }
 }
