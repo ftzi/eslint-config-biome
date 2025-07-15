@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.1
+
+- Updated Biome to 2.1.1.
+- Updated `eslint-config-prettier`.
+
 ## 1.9.3
 
 - Added a few minor ESLint rules to be disabled.

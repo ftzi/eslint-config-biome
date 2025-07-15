@@ -25,6 +25,7 @@ export const getTsExtensionsForRules = (
     (ruleToExtend) => `@typescript-eslint/${ruleToExtend}`,
   )
 }
+
 /** The Biome docs has some rules just under the Typescript table, but we also need to disable the JS base rules. */
 export const getJsBaseRules = (allRules: Array<string>): Array<string> => {
   const jsGlob = new Bun.Glob("*.js")
