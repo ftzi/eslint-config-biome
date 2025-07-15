@@ -39,6 +39,7 @@
     "@types/bun": "^1.2.18",
     "eslint-config-gev": "4.9.1",
     "husky": "^9.1.7",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "zod": "^4.0.5"
   }
 }

@@ -44,7 +44,7 @@ test("index.js has rules from different plugins and includes extra rules", () =>
 test("TS extensions should be added to index.js", () => {
   const rulesToCheck = [
     "@typescript-eslint/no-redeclare",
-    "@typescript-eslint/default-param-last",
+    "@typescript-eslint/no-explicit-any",
   ]
 
   expect(disabledRules).toEqual(expect.arrayContaining(rulesToCheck))
