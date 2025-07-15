@@ -8,11 +8,45 @@
  * Helper: https://10015.io/tools/json-tree-viewer
  */
 
-type FixKind = "none" | "safe" | "unsafe"
+import { z } from "zod"
 
-type RuleSourceKind = "sameLogic" | "inspired"
+const FixKindSchema = z.enum(["none", "safe", "unsafe"])
+const RuleSourceKindSchema = z.enum(["sameLogic", "inspired"])
 
-type Languages = "css" | "js" | "json" | "jsx" | "ts"
+// Schema for rule source object (e.g., { "eslint": "no-console" })
+const RuleSourceObjectSchema = z.record(z.string(), z.string())
+
+// Schema for new Biome v2 rule source format
+const RuleSourceSchema = z.object({
+  kind: RuleSourceKindSchema,
+  source: RuleSourceObjectSchema,
+})
+
+// Schema for individual rule
+const RuleSchema = z.object({
+  deprecated: z.boolean().optional(),
+  version: z.string(),
+  name: z.string(),
+  link: z.string(),
+  recommended: z.boolean(),
+  fixKind: FixKindSchema,
+  sources: z.array(RuleSourceSchema).optional(),
+})
+
+// Schema for the nested structure
+const LanguageRulesSchema = z.record(
+  z.string(),
+  z.record(z.string(), RuleSchema),
+)
+const LintsSchema = z.object({
+  languages: z.record(z.string(), LanguageRulesSchema),
+})
+const RulesMetadataSchema = z.object({
+  lints: LintsSchema,
+})
+
+// Update RuleMetadata to match the new Zod schema
+type RuleMetadata = z.infer<typeof RuleSchema>
 
 const ruleSourceToPrefix: Record<string, string> = {
   eslint: "",
@@ -58,68 +92,23 @@ const getEslintRulePrefix = (
   return `${rulePrefix}${ruleName}`
 }
 
-export type RuleMetadata = {
-  /**
-   * It marks if a rule is deprecated, and if so a reason has to be provided.
-   */
-  deprecated?: boolean
-  docs?: string
-  /**
-   * The kind of fix
-   */
-  fixKind?: FixKind
-  /**
-   * The rule's documentation URL
-   */
-  link?: string
-  /**
-   * The name of this rule, displayed in the diagnostics it emits
-   */
-  name?: string
-  /**
-   * Whether a rule is recommended or not
-   */
-  recommended?: boolean
-  /**
-   * The source kind of the rule
-   */
-  sourceKind?: RuleSourceKind | null
-  /**
-   * The source metadata of the rule
-   */
-  sources?: Array<Record<string, string>>
-  /**
-   * The version when the rule was implemented
-   */
-  version?: string
-}
-
-export type RulesGroup = {
-  languages: Record<
-    Languages,
-    {
-      [ruleSubSet: string]: {
-        [biomeRule: string]: RuleMetadata
-      }
-    }
-  >
-  numberOrRules?: number
-}
-
-export type RulesMetadata = Record<string, RulesGroup>
+// Export the Zod-based type as RuleMetadata
+export type { RuleMetadata }
 
 const getAllRules = async (): Promise<Array<RuleMetadata>> => {
   const response = await fetch("https://biomejs.dev/metadata/rules.json")
-  const metadata = (await response.json()) as RulesMetadata
+  const rawData = await response.json()
 
+  // Parse using Zod schema for type safety
+  const parsedData = RulesMetadataSchema.parse(rawData)
+
+  // Extract rules from nested structure
   const rules: Array<RuleMetadata> = []
 
-  Object.values(metadata).forEach((ruleGroup) => {
-    Object.values(ruleGroup.languages).forEach((language) => {
-      Object.values(language).forEach((ruleSubSet) => {
-        Object.values(ruleSubSet).forEach((rule) => {
-          rules.push(rule)
-        })
+  Object.values(parsedData.lints.languages).forEach((language) => {
+    Object.values(language).forEach((category) => {
+      Object.values(category).forEach((rule) => {
+        rules.push(rule)
       })
     })
   })
@@ -138,16 +127,13 @@ export const getRulesFromJsonMetadata = async (): Promise<Array<string>> => {
 
   filteredRules.forEach((rule) => {
     rule.sources?.forEach((ruleSource) => {
-      if (Object.keys(ruleSource).length > 1) {
-        throw new Error(
-          `Rule source has more than one key: ${JSON.stringify(ruleSource)}`,
-        )
-      }
-      const key = Object.keys(ruleSource)[0]
+      // Handle new Biome v2 format with kind and source properties
+      const sourceObj = ruleSource.source
+      const key = Object.keys(sourceObj)[0]
 
       if (!key) throw new Error("Rule source has no key!")
 
-      const val = ruleSource[key]
+      const val = sourceObj[key]
 
       if (!val) throw new Error("Rule source has no value!")
 
