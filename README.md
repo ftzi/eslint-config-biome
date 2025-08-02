@@ -71,8 +71,8 @@ npm install -D eslint-config-biome # or your preferred package manager ;)
 
   ```json
   "scripts": {
-    "lint": "biome check . --write --unsafe && eslint lint --fix",
-    "lint:check": "biome check . --unsafe && eslint lint",
+    "lint": "biome check --unsafe --fix && eslint --fix .",
+    "lint:check": "biome check --unsafe --fix && eslint .",
   }
   ```
 

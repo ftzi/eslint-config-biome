@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "bun --watch run scripts/index.ts",
-    "lint": "biome check --unsafe --fix ",
+    "lint": "biome check --unsafe --fix",
     "lint:check": "biome check --unsafe",
     "pre-commit": "bun lint && bun typecheck && bun test && git add -A",
     "prepare": "husky",
