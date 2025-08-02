@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.1
+
+- Updated Biome to 2.1.1.
+- Updated `eslint-config-prettier`.
+
 ## 1.9.3
 
 - Added a few minor ESLint rules to be disabled.
@@ -7,7 +12,7 @@
 
 ## 1.8.3
 
-- Fix issue with ESLint's Flat Config ([#7](https://github.com/SrBrahma/eslint-config-biome/issues/7)).
+- Fix issue with ESLint's Flat Config ([#7](https://github.com/ftzi/eslint-config-biome/issues/7)).
 
 ## 1.7.3
 

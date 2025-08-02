@@ -1,3 +1,6 @@
 {
-  "extends": "@sindresorhus/tsconfig"
+  "extends": "@sindresorhus/tsconfig",
+  "compilerOptions": {
+    "lib": ["ES2023"]
+  }
 }
