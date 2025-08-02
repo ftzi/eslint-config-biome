@@ -1,8 +1,8 @@
 # Changelog
 
-## 2.1.1
+## 2.1.3
 
-- Updated Biome to 2.1.1.
+- Updated Biome to 2.1.3.
 - Updated `eslint-config-prettier`.
 
 ## 1.9.3
