@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-
 import { expect, test } from "bun:test"
 import fs from "node:fs"
 import path from "node:path"
@@ -21,7 +19,7 @@ import indexJs from "../eslint-config-prettier.js"
 test("index.js is a valid file and can be used by eslint", () => {
   // In the root there is a .eslintrc that uses the index.js in the extends.
   expect(
-    spawnSync(["bunx", "--bun", "eslint", "scripts/index.ts"], {
+    spawnSync(["bunx", "eslint", "scripts/index.ts"], {
       cwd: rootPath,
     }).success,
   ).toBeTrue()

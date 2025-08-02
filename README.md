@@ -1,14 +1,5 @@
 <div align="center">
 
-## 🚀 Check out my latest project — [NextStack](https://www.nextstack.gg)! 
-
-<a href="https://www.nextstack.gg" target="_blank">
-  <img src="https://www.nextstack.gg/opengraph-image" width="500" alt="NextStack OpenGraph Image">
-</a>
-
----
-
-
 <br/>
 <img src="logo.svg" alt="logo" width="250"/>
 
@@ -80,8 +71,8 @@ npm install -D eslint-config-biome # or your preferred package manager ;)
 
   ```json
   "scripts": {
-    "format:check": "biome check . && eslint .",
-    "format": "biome check --write --unsafe . && eslint --fix .",
+    "lint": "biome check . --write --unsafe && eslint lint --fix",
+    "lint:check": "biome check . --unsafe && eslint lint",
   }
   ```
 

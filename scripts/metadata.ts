@@ -1,7 +1,7 @@
 /**
  * For future references:
  *
- * Origin: https://github.com/SrBrahma/eslint-config-biome/issues/5#issuecomment-2399547365
+ * Origin: https://github.com/ftzi/eslint-config-biome/issues/5#issuecomment-2399547365
  * Rules Metadata: https://biomejs.dev/metadata/rules.json
  * Json Schema: https://biomejs.dev/metadata/schema.json
  * Tool to TS type, then requires manual changes: https://transform.tools/json-schema-to-typescript
